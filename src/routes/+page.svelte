@@ -1,4 +1,5 @@
 <script>
+  import trash from '$lib/trash.png';
   let todos = [];
   let todoEntered;
 
@@ -47,19 +48,13 @@
           type="checkbox"
           class="absolute ml-12 left-0 h-8 w-8 rounded-full shadow"
         />
-        {todo}
+        <button
+          on:click={handleDelBtn(todo)}
+          class="absolute ml-24 left-0 button bg-violet-500 rounded-sm p-1 shadow-sm shadow-violet-500 text-black"
+          ><img width="23" src={trash} alt="" /></button
+        >
 
-        <div class="absolute right-0 mr-12 top-5 h-8 w-8">
-          <button
-            on:click={handleDelBtn(todo)}
-            class="button bg-violet-500 rounded-sm p-1 shadow-sm shadow-violet-500 text-black"
-            ><img
-              width="20"
-              src="https://cdn-icons-png.flaticon.com/512/542/542724.png"
-              alt=""
-            /></button
-          >
-        </div>
+        {todo}
       </div>
     {/each}
   </div>
